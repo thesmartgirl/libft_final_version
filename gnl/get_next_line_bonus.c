@@ -110,5 +110,7 @@ char	*get_next_line(int fd)
 		line = extract_line(line_draft, fd);
 		line_draft[fd] = update_line_draft(line_draft, fd, line);
 	}
+	if (ft_strlen(line_draft[0]) == 0)
+		cleanup_fd(line_draft, fd);
 	return (line);
 }
