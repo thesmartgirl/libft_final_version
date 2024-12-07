@@ -33,7 +33,7 @@ static char	*extract_line(char **line_draft, int fd)
 		nl++;
 	if (nl == 0 && line_draft[fd][0] != '\n')
 	{
-		if (ft_strlen(line_draft[fd]) == 0)
+		if (gnl_strlen(line_draft[fd]) == 0)
 			line = NULL;
 		else
 			line = ft_strdup(line_draft[fd]);
@@ -52,10 +52,14 @@ static char	*extract_line(char **line_draft, int fd)
 static char	*update_line_draft(char **line_draft, int fd, char *line)
 {
 	char	*tmp;
+	int	line_len;
 
 	tmp = line_draft[fd];
-	line_draft[fd] = ft_substr(tmp, ft_strlen(line), (ft_strlen(line_draft[fd])
-				- ft_strlen(line)));
+	line_len = 0;
+	if(line != NULL)
+		line_len = gnl_strlen(line);
+	line_draft[fd] = ft_substr(tmp, line_len, (gnl_strlen(line_draft[fd])
+				- line_len));
 	free(tmp);
 	return (line_draft[fd]);
 }

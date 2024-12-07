@@ -12,6 +12,18 @@
 
 #include "get_next_line_bonus.h"
 
+int	gnl_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (str == NULL)
+		return (0);
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
+
 char	*gnl_strjoin(char *s1, char *s2)
 {
 	char	*str;
@@ -22,7 +34,7 @@ char	*gnl_strjoin(char *s1, char *s2)
 		return (NULL);
 	i = 0;
 	j = 0;
-	str = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	str = malloc((gnl_strlen(s1) + gnl_strlen(s2) + 1) * sizeof(char));
 	if (str != NULL)
 	{
 		while (s1[i])

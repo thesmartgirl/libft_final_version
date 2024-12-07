@@ -22,5 +22,6 @@
 
 char	*get_next_line(int fd);
 char	*gnl_strjoin(char *s1, char *s2);
+int	gnl_strlen(char *str);
 
 #endif
