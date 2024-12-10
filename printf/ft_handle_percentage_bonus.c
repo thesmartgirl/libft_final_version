@@ -15,7 +15,6 @@ int	ft_handle_percentage(va_list *args, t_format_flags *flags,
 		t_to_print *print_txt)
 {
 	(void)args;
-	
 	if (flags->flag_zero == 0 || flags->flag_zero == 1)
 		write(1, "%", 1);
 	if (print_txt->s != NULL)
