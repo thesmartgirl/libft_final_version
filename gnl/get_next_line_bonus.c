@@ -6,7 +6,7 @@
 /*   By: ataan <ataan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 19:27:42 by ataan             #+#    #+#             */
-/*   Updated: 2024/11/19 09:04:42 by ataan            ###   ########.fr       */
+/*   Updated: 2024/12/10 16:35:13 by ataan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ static char	*extract_line(char **line_draft, int fd)
 static char	*update_line_draft(char **line_draft, int fd, char *line)
 {
 	char	*tmp;
-	int	line_len;
+	int		line_len;
 
 	tmp = line_draft[fd];
 	line_len = 0;
-	if(line != NULL)
+	if (line != NULL)
 		line_len = gnl_strlen(line);
 	line_draft[fd] = ft_substr(tmp, line_len, (gnl_strlen(line_draft[fd])
 				- line_len));
@@ -110,7 +110,5 @@ char	*get_next_line(int fd)
 		line = extract_line(line_draft, fd);
 		line_draft[fd] = update_line_draft(line_draft, fd, line);
 	}
-	if (ft_strlen(line_draft[0]) == 0)
-		cleanup_fd(line_draft, fd);
 	return (line);
 }

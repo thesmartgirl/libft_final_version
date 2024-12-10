@@ -52,4 +52,3 @@ char	*gnl_strjoin(char *s1, char *s2)
 	free(s1);
 	return (str);
 }
-
